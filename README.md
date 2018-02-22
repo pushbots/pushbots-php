@@ -1,3 +1,6 @@
+[![Build
+Status](https://travis-ci.org/pushbots/pushbots-php.svg?branch=master)](https://travis-ci.org/pushbots/pushbots-php)
+
 ## pushbots-php
 
 > Official PHP package for PushBots
