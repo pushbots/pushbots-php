@@ -5,7 +5,7 @@
 
 ## Installation
 
-Requires PHP 5.6.
+Requires PHP 5.5.
 
 
 Install with Composer
