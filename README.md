@@ -19,7 +19,11 @@ Then require the library in your PHP code:
 
 ```php
 require "vendor/autoload.php";
-``
+```
+
+
+Example
+------------
 
 ```php
 <?php
