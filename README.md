@@ -1,6 +1,5 @@
 [![Build
-Status](https://travis-ci.org/pushbots/pushbots-php.svg?branch=master)](https://travis-ci.org/pushbots/pushbots-php)
-
+Status](https://travis-ci.org/pushbots/pushbots-php.svg?branch=master)](https://travis-ci.org/pushbots/pushbots-php) [![Maintainability](https://api.codeclimate.com/v1/badges/46f15715f32dd218b5e6/maintainability)](https://codeclimate.com/github/pushbots/pushbots-php/maintainability)
 ## pushbots-php
 
 > Official PHP package for PushBots
