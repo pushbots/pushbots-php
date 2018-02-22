@@ -1,0 +1,26 @@
+{
+	"name": "pushbots/pushbots-php",
+	"description": "PushBots API",
+	"keywords": ["pushbots", "pushbots.com", "api", "guzzle"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "PushBots",
+			"homepage": "https://pushbots.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Pushbots\\": ["src"]
+		}
+	},
+	"require": {
+		"guzzlehttp/guzzle": "~6.0",
+		"php": ">= 5.6"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "4.8.12",
+		"phpunit/php-timer": "1.0.9",
+		"phpdocumentor/phpdocumentor": "2.*"
+	}
+}
