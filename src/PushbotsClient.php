@@ -41,6 +41,10 @@ class PushbotsClient
      */
     public $campaign;
     
+    /**
+     * @var PushbotsTransactional $$transactional Sends a notification to single user using Pushbots API.
+     */
+    public $transactional;
     
     /**
      * PushbotsClient constructor.
@@ -52,6 +56,7 @@ class PushbotsClient
     {
         $this->_setClient();
         $this->campaign = new PushbotsCampaign($this);
+        $this->transactional = new PushbotsTransactional($this);
         
         $this->applicationId = $applicationId;
         $this->applicationSecret = $applicationSecret;

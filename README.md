@@ -35,11 +35,18 @@ require 'vendor/autoload.php';
 use Pushbots\PushbotsClient;
 
 $client = new PushbotsClient("APPLICATION_ID", "APPLICATION_SECRET");
+
+//Sample sending campaign to all users
 $client->campaign->send([
 	//Platforms
-	"platform" => [0,1,2], 
+	//0 => iOS
+	//1 => Android
+	//2 => Chrome
+	//3 => Firefox
+	//4 => Safari
+	"platform" => [0,1,2,3,4], 
 	//Message
-	"msg" => "test",
+	"msg" => "Notification message"
 	//Badge [iOS only]
 	"badge"	=> "+1",
 	//Notification payload
@@ -47,12 +54,50 @@ $client->campaign->send([
 		"key"=> "value"
 	]
 ]);
+
+```
+
+Alias
+------------
+
+```php
+//Sample sending campaign to an alias
+$client->campaign->alias("ALIAS", "Notification message");
 ```
 
 
+Test notification
+------------
+
+```php
+//Sample sending campaign to an alias
+$client->campaign->test();
+```
+
+Sending to one device [Transactional]
+------------
+
+```php
+//Sample sending campaign to an alias
+$client->transactional->send([
+	// iOS and Android only supported
+	//0 => iOS
+	//1 => Android
+	"platform" => 0, 
+	//token
+	"token" => "71e7aef2f01d055b11c958dc48d06a655541b054196dd33b071777e1557dcb48",
+	//Message
+	"msg" => "Notification message"
+]);
+```
 
 Changelog
 -------------
+
+Version 1.1.0
+ * Add testing notification.
+ * Add Push/one support.
+ * Add alias support.
 
 Version 1.0.0
  * Release PushBots PHP package
