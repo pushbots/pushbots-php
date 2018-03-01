@@ -67,12 +67,17 @@ $client->campaign->alias("ALIAS", "Notification message");
 
 
 Test notification
-------------
+-------------
 
 ```php
 //Sample sending campaign to an alias
 $client->campaign->test();
 ```
+
+Exceptions
+-------------
+
+[Guzzle](http://docs.guzzlephp.org/en/stable/quickstart.html#exceptions) throws exceptions for errors that occur during a transfer.
 
 Sending to one device [Transactional]
 ------------
