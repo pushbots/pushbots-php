@@ -29,6 +29,6 @@ class PushbotsTransactional
      */
     public function send($options)
     {
-        return $this->_client->post("push/one", $options);
+        return $this->_client->post("3/push/transactional", $options);
     }
 }

@@ -34,6 +34,7 @@ require 'vendor/autoload.php';
 
 use Pushbots\PushbotsClient;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7;
 
 $client = new PushbotsClient("APPLICATION_ID", "APPLICATION_SECRET");
@@ -59,6 +60,9 @@ try {
 		]
 	]);
 } catch (ClientException $e) {
+    echo Psr7\str($e->getRequest());
+    echo Psr7\str($e->getResponse());
+} catch (ServerException $e) {
     echo Psr7\str($e->getRequest());
     echo Psr7\str($e->getResponse());
 }
@@ -92,21 +96,37 @@ Sending to one device [Transactional]
 
 ```php
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\ServerException;
 use GuzzleHttp\Psr7;
 ......
-//Sample sending campaign to an alias
 try {
 	$client->transactional->send([
-		// iOS and Android only supported
+		//topic [Required] of the transactional notification [can be any value, used only for tracking]
+		"topic" => "welcome_campaign",
+		//Platform [Required]
 		//0 => iOS
 		//1 => Android
-		"platform" => 0, 
-		//token
-		"token" => "343aa292e2bb642db2abb24124417cdf945a03e18c9434499d0dcef8b0d7dd0f",
-		//Message
-		"msg" => "Notification message"
+		//2 => Chrome
+		//3 => Firefox
+		//4 => Opera
+		//5=> Safari
+		"platform" => 0,
+		//recipients [Required]
+		"recipients ["=> [
+			"tokens"=> ["343aa292e2bb642db2abb24124417cdf945a03e18c9434499d0dcef8b0d7dd0f"]
+			//==OR== "ids"=>["ID"]
+		],
+		//Message [Required]
+		"message" => [
+			"title"=>"title", //[Optional]
+			"body" => "Notification message",
+			"payload"	=> ["key"=>"value"] //[Optional]
+		]
 	]);
 } catch (ClientException $e) {
+    echo Psr7\str($e->getRequest());
+    echo Psr7\str($e->getResponse());
+} catch (ServerException $e) {
     echo Psr7\str($e->getRequest());
     echo Psr7\str($e->getResponse());
 }
@@ -115,7 +135,9 @@ try {
 Changelog
 -------------
 Version 1.2.0
-
+ * Bug fixes.
+ * Add transactional API support v3.
+ * Catch GuzzleExceptions in sample code.
 
 Version 1.1.0
  * Add testing notification.
