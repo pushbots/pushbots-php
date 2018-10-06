@@ -91,17 +91,25 @@ Sending to one device [Transactional]
 ------------
 
 ```php
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7;
+......
 //Sample sending campaign to an alias
-$client->transactional->send([
-	// iOS and Android only supported
-	//0 => iOS
-	//1 => Android
-	"platform" => 0, 
-	//token
-	"token" => "71e7aef2f01d055b11c958dc48d06a655541b054196dd33b071777e1557dcb48",
-	//Message
-	"msg" => "Notification message"
-]);
+try {
+	$client->transactional->send([
+		// iOS and Android only supported
+		//0 => iOS
+		//1 => Android
+		"platform" => 0, 
+		//token
+		"token" => "343aa292e2bb642db2abb24124417cdf945a03e18c9434499d0dcef8b0d7dd0f",
+		//Message
+		"msg" => "Notification message"
+	]);
+} catch (ClientException $e) {
+    echo Psr7\str($e->getRequest());
+    echo Psr7\str($e->getResponse());
+}
 ```
 
 Changelog
