@@ -2,7 +2,7 @@
 /**
 * PushBots
 *
-* PushBots official PHP package
+* PushBots official PHP package 1.2
 *
 * @copyright 2018 Abdullah Diaa <abdullah@pushbots.com>
 * @license   http://www.opensource.org/licenses/mit-license.php MIT

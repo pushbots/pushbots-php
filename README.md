@@ -46,7 +46,7 @@ $client->campaign->send([
 	//4 => Safari
 	"platform" => [0,1,2,3,4], 
 	//Message
-	"msg" => "Notification message"
+	"msg" => "Notification message",
 	//Badge [iOS only]
 	"badge"	=> "+1",
 	//Notification payload
@@ -98,6 +98,8 @@ $client->transactional->send([
 
 Changelog
 -------------
+Version 1.2.0
+
 
 Version 1.1.0
  * Add testing notification.
