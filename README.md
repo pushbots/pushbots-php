@@ -33,27 +33,35 @@ Example
 require 'vendor/autoload.php';
 
 use Pushbots\PushbotsClient;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7;
 
 $client = new PushbotsClient("APPLICATION_ID", "APPLICATION_SECRET");
 
-//Sample sending campaign to all users
-$client->campaign->send([
-	//Platforms
-	//0 => iOS
-	//1 => Android
-	//2 => Chrome
-	//3 => Firefox
-	//4 => Safari
-	"platform" => [0,1,2,3,4], 
-	//Message
-	"msg" => "Notification message",
-	//Badge [iOS only]
-	"badge"	=> "+1",
-	//Notification payload
-	"payload"=>[
-		"key"=> "value"
-	]
-]);
+try {
+	//Sample sending campaign to all users
+	$res = $client->campaign->send([
+		//Platforms
+		//0 => iOS
+		//1 => Android
+		//2 => Chrome
+		//3 => Firefox
+		//4 => Opera
+		//5=> Safari
+		"platform" => [0,1,2,3,4,5], 
+		//Message
+		"msg" => "Notification message",
+		//Badge [iOS only]
+		"badge"	=> "+1",
+		//Notification payload
+		"payload"=>[
+			"key"=> "value"
+		]
+	]);
+} catch (ClientException $e) {
+    echo Psr7\str($e->getRequest());
+    echo Psr7\str($e->getResponse());
+}
 
 ```
 
