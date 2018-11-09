@@ -112,7 +112,7 @@ try {
 		//5=> Safari
 		"platform" => 0,
 		//recipients [Required]
-		"recipients ["=> [
+		"recipients"=> [
 			"tokens"=> ["343aa292e2bb642db2abb24124417cdf945a03e18c9434499d0dcef8b0d7dd0f"]
 			//==OR== "ids"=>["ID"]
 		],
