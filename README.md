@@ -134,6 +134,10 @@ try {
 
 Changelog
 -------------
+Version 1.2.1
+ * Add campaign V3 support.
+ * Bug fixes.
+
 Version 1.2.0
  * Bug fixes.
  * Add transactional API support v3.

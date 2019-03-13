@@ -2,7 +2,7 @@
 /**
 * PushBots
 *
-* PushBots official PHP package 1.2
+* PushBots official PHP package 1.2.1
 *
 * @copyright 2018 Abdullah Diaa <abdullah@pushbots.com>
 * @license   http://www.opensource.org/licenses/mit-license.php MIT
@@ -46,6 +46,11 @@ class PushbotsClient
      */
     public $transactional;
     
+        /**
+     * @var PushbotsBatch $$batch Sends a batch notification using Pushbots API.
+     */
+    public $batch;
+
     /**
      * PushbotsClient constructor.
      *
@@ -57,7 +62,8 @@ class PushbotsClient
         $this->_setClient();
         $this->campaign = new PushbotsCampaign($this);
         $this->transactional = new PushbotsTransactional($this);
-        
+        $this->batch = new PushbotsBatch($this);
+
         $this->applicationId = $applicationId;
         $this->applicationSecret = $applicationSecret;
     }

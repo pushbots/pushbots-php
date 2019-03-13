@@ -1,7 +1,7 @@
 {
 	"name": "pushbots/pushbots-php",
 	"description": "PushBots PHP SDK",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"keywords": ["pushbots", "pushbots.com", "api", "guzzle", "push", "notifications"],
 	"license": "MIT",
 	"authors": [
